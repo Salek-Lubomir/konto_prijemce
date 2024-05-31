@@ -1,0 +1,73 @@
+<mvc:View
+	controllerName="ui5.kp.controller.SelectionScreen"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:sfb="sap.ui.comp.smartfilterbar"
+	displayBlock="true"
+>
+				<Page title="{i18n>homePageTitle}">
+					<content>
+  						<sfb:SmartFilterBar id="idSmartFilterBar" entitySet="SubjOss">
+
+						</sfb:SmartFilterBar>  
+						<VBox class="sapUiSmallMargin">
+							<HBox class="sapUiTinyMarginTopBottom">
+								<VBox class="sapUiMediumMarginEnd">
+									<Label text="{i18n>subjektTyp}" labelFor="GRPA" />
+									<RadioButtonGroup id="GRPA" select=".onSelectGRPA">
+										<RadioButton text="{i18n>subjektIndividual}" selected="true" />
+										<RadioButton text="{i18n>subjektLegal}" />
+									</RadioButtonGroup>
+								</VBox>
+								<VBox class="sapUiMediumMarginEnd">		
+									<Label text="{i18n>sourceData}" labelFor="GRPB" />
+									<RadioButtonGroup id="GRPB">
+										<RadioButton text="{i18n>registryKE}" selected="true" />
+										<RadioButton text="{i18n>registrySAP}" />
+									</RadioButtonGroup>										
+								</VBox>
+								<VBox class="sapUiMediumMarginEnd">		
+									<Label text="{i18n>areaData}" labelFor="GRPC" />
+									<RadioButtonGroup id="GRPC">
+										<RadioButton text="{i18n>areaDDP}" selected="true" />
+										<RadioButton text="{i18n>areaDNP}" />
+										<RadioButton text="{i18n>areaREF}" />
+									</RadioButtonGroup>									
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<HBox class="sapUiTinyMarginTopBottom">
+								<VBox class="sapUiMediumMarginEnd">	
+									<Label text="{i18n>personID}" labelFor="RC" />
+									<Input id="RC" type="Number" value="{/soKP/Rc}" placeholder="{i18n>inputNumber}" description="RRMMDDNNNN" valueLiveUpdate="true" width="100%" />										
+									<Label text="{i18n>name}" labelFor="JMENO" />
+									<Input id="JMENO" value="{/soKP/Jmeno}" placeholder="{i18n>inputText}" valueLiveUpdate="true" width="100%"/>										
+									<Label text="{i18n>surname}" labelFor="PRIJMENI" />
+									<Input id="PRIJMENI" value="{/soKP/Prijmeni}" placeholder="{i18n>inputText}" valueLiveUpdate="true" width="100%"/>										
+								</VBox>
+							</HBox>
+							<Button
+								text="{i18n>btnSelectData}"
+								press=".onSelectData" />									
+						</VBox>
+
+
+						<Panel headerText="{i18n>helloPanelTitle}">
+							<content>
+								<Button
+									text="{i18n>showHelloButtonText}"
+									press=".onShowHello"
+								/>
+								<Input
+									value="{/recipient/name}"
+									description="Hello {/recipient/name}"
+									valueLiveUpdate="true"
+									width="60%"
+								/>
+							</content>
+						</Panel>
+					</content>
+				</Page>
+				
+</mvc:View>

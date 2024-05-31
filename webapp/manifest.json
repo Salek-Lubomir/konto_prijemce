@@ -1,0 +1,146 @@
+{
+    "_version": "1.58.0",
+    "sap.app": {
+        "id": "ui5.kp",
+        "i18n": {
+            "bundleUrl": "i18n/i18n.properties",
+            "supportedLocales": [
+                "en",
+                "cs"
+            ],
+            "fallbackLocale": ""
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "type": "application",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "sourceTemplate": {
+            "id": "@sap/ux-app-migrator:freestyle",
+            "version": "1.11.5",
+            "toolsId": "5030d93a-ed5f-4c4c-9360-9a691a323a02"
+        },
+        "dataSources": {
+			"dsSbj": {
+				"uri": "/sap/opu/odata/sap/ZLSD_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}        
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "contentDensities": {
+			"cozy": true,
+			"compact": true
+		},
+        "dependencies": {
+            "minUI5Version": "1.108.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ui5.kp.i18n.i18n",
+                    "supportedLocales": [
+                        "en",
+                        "cs"
+                    ],
+                    "fallbackLocale": ""
+                }
+            },
+            "ui": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "mdlSbj": {
+				"dataSource": "dsSbj"
+			}            
+        },
+        "rootView": {
+            "viewName": "ui5.kp.view.App",
+            "type": "XML",
+            "id": "app"
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "type": "View",
+                "viewType": "XML",
+                "path": "ui5.kp.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "bypassed": {
+                    "target": "tg_not_found"
+                }                
+            },
+            "routes": [
+                {
+                    "pattern": "",
+                    "name": "rt_default",
+                    "target": "tg_main_sel"
+                },
+                {
+                    "pattern": "os",
+                    "name": "rt_os",
+                    "target": "tg_main_os"
+                },                                
+                {
+                    "pattern": "or",
+                    "name": "rt_or",
+                    "target": "tg_main_or"
+                },                
+                {
+                    "pattern": "sbjlst/:Rc:/:Jmeno:/:Prijmeni:",
+                    "name": "rt_sbjlst",
+                    "target": "tg_sbjlst"
+                }
+            ],
+            "targets": {
+                "tg_main_sel": {
+                    "id": "main_sel",
+                    "name": "MainSel",
+                    "level": 1
+                },                
+                "tg_main_os": {
+                    "id": "main_os",
+                    "name": "MainOs",
+                    "parent": "tg_main_sel",
+                    "controlId": "mainNavContainer",
+                    "transition": "show",
+                    "level": 2
+                },
+                "tg_main_or": {
+                    "id": "main_or",
+                    "name": "MainOr",
+                    "parent": "tg_main_sel",
+                    "controlId": "mainNavContainer",
+                    "transition": "show",
+                    "level": 3                    
+                },                
+                "tg_sbjlst": {
+                    "id": "sbjlst",
+                    "name": "SubjectList"
+                },
+                "tg_not_found": {
+                    "name": "MainSel",
+                    "transition": "show",
+                    "level": 0
+                }                
+            }
+        }
+    }
+}

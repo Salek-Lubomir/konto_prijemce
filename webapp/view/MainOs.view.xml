@@ -1,0 +1,36 @@
+<mvc:View
+	controllerName="ui5.kp.controller.MainOs"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:sfb="sap.ui.comp.smartfilterbar"
+	xmlns:st="sap.ui.comp.smarttable"
+	height="88%"
+	displayBlock="true">
+	<sfb:SmartFilterBar id="idSmartFilterBar"
+	                    entitySet="ZLSD_SubjOs"
+						initialized="onFilterBarInitialized">
+		<sfb:controlConfiguration>
+			<sfb:ControlConfiguration index="1" key="Ikmpsv" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"/>
+			<sfb:ControlConfiguration index="2" key="Rdncsl" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"/>
+			<sfb:ControlConfiguration index="3" key="Prjosb" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"/>
+			<sfb:ControlConfiguration index="4" key="Jmnosb" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"/>
+			<sfb:ControlConfiguration key="to_Subjekt.Idnsbj" visible="false" />
+			<sfb:ControlConfiguration key="to_Subjekt.Vrzsbj" visible="false" />
+		</sfb:controlConfiguration>
+	</sfb:SmartFilterBar>  	
+	<st:SmartTable
+		id="idSmartTable"
+		entitySet="ZLSD_SubjOs"
+		smartFilterId="idSmartFilterBar"
+		beforeRebindTable="onBeforeRebindTable"
+		tableType="Table"
+		header="{i18n>subjectListTitle}"
+		showRowCount="true"
+		enableAutoColumnWidth="true"
+		initiallyVisibleFields="Rdncsl,Prjosb,Jmnosb,Rdnprj,Dtmnrz,Dtmumr"
+		enableExport="false"
+		persistencyKey="SmartTableAnalyticalSubjOs"
+		useVariantManagement="true"
+		useTablePersonalisation="true">
+	</st:SmartTable>
+</mvc:View>
