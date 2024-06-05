@@ -5,41 +5,37 @@
 	xmlns:sfb="sap.ui.comp.smartfilterbar"
 	displayBlock="true"
 >
-	<Page id="mainSel" title="{i18n>homePageTitle}">
-
-    <headerContent>
-
-    </headerContent>	
-	<content>
+	<Page id="idMainSel" title="{i18n>mainSelPageTitle}">
+		<content>
 			<VBox width="100%">
-			<SegmentedButton
-				width="20%"
-				selectionChange=".onSegmentedButtonSelectionChange"
-				selectedKey="{
-				path: 'ui>/selectedRoute',
-				events: { change: '.onSelectedRouteBindingChange' }
-				}"
-			>
-				<items>
-				<SegmentedButtonItem
-					key="rt_os"
-					text="{i18n>subjektIndividual}"
-				/>
-				<SegmentedButtonItem
-					key="rt_or"
-					text="{i18n>subjektLegal}"
-				/>
-				</items>
-			</SegmentedButton>
-		</VBox>
-		<NavContainer id="mainNavContainer" autoFocus="false" height="95%"> <!--
-    		Avoid sap.m.App here. Instead, use sap.m.NavContainer:
-	    	https://github.com/SAP/openui5/issues/1282#issuecomment-280575439
-    		-->
-        	<pages>
-      		<!-- Child views will be added here by the routing mechanism -->
-      		</pages>
-    	</NavContainer>
-	</content>
+				<SegmentedButton
+					width="20%"
+					selectionChange=".onSegmentedButtonSelectionChange"
+					selectedKey="{
+					path: 'ui>/selectedRoute',
+					events: { change: '.onSelectedRouteBindingChange' }
+					}"
+				>
+					<items>
+						<SegmentedButtonItem
+							key="rt_main_os"
+							text="{i18n>subjektIndividual}"
+						/>
+						<SegmentedButtonItem
+							key="rt_main_or"
+							text="{i18n>subjektLegal}"
+						/>
+					</items>
+				</SegmentedButton>
+			</VBox>
+			<NavContainer id="mainNavContainer" autoFocus="false" height="95%"> <!--
+				Avoid sap.m.App here. Instead, use sap.m.NavContainer:
+				https://github.com/SAP/openui5/issues/1282#issuecomment-280575439
+				-->
+				<pages>
+				<!-- Child views will be added here by the routing mechanism -->
+				</pages>
+			</NavContainer>
+		</content>
 	</Page>
 </mvc:View>

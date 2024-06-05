@@ -39,6 +39,15 @@ sap.ui.define([
 				// to prevent applying the initial sort all times 
 				this.initView = false;
 			}
-		}
+		},
+
+		onSelectionChange : function (oEvent) {
+			var sPath = oEvent.getParameter("listItem").getBindingContextPath();
+			const oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("rt_detail_or", {
+				"sPath":  window.encodeURIComponent(sPath)
+			});
+		}		
+		
 	});	
 });

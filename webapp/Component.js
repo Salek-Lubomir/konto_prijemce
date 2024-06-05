@@ -16,6 +16,7 @@ sap.ui.define([
 			UIComponent.prototype.init.apply(this, arguments);
 
 			Log.setLevel(Log.Level.WARNING);
+			
 			Log.info("Log info");
 			Log.debug("Log debug");
 			Log.warning("Log warning");

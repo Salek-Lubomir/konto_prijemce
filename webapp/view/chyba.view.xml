@@ -1,0 +1,12 @@
+<mvc:View controllerName="demo.controller.children.Child1"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  height="100%"
+>
+  <MessagePage 
+    showHeader="false"
+    icon="sap-icon://sap-ui5"
+    text="Child View 1"
+    description=""
+  />
+</mvc:View>

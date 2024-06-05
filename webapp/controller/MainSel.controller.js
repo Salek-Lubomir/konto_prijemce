@@ -14,28 +14,25 @@ sap.ui.define([
 		},
 
 		onPatternMatched: function(event) {
-			const key = event.getParameter("name");
+			const oRouter = this.getOwnerComponent().getRouter();
+			const name = event.getParameter("name");
 			const uiModel = this.getOwnerComponent().getModel("ui");
-			if (key === "rt_default") {
-				uiModel.setProperty("/selectedRoute", "rt_os");
+			if (name === "rt_default") {
+				uiModel.setProperty("/selectedRoute", "rt_main_os");
+				oRouter.navTo("rt_main_os");
 			} else {
-				uiModel.setProperty("/selectedRoute", key);
+				uiModel.setProperty("/selectedRoute", name);
 			}
 		},
 
 		onSegmentedButtonSelectionChange: function(event) {
-			this.navTo(event.getParameter("item").getKey());
+			const oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo(event.getParameter("item").getKey());
 		},		
 		
 		onSelectedRouteBindingChange: function(event) {
-			this.navTo(event.getSource().getValue());
-		},
+//			this.navTo(event.getSource().getValue());
+		}
 
-		navTo: function(routeName) {
-			if (routeName) {
-				const router = this.getOwnerComponent().getRouter();
-				router.navTo(routeName);
-			}
-		},
 	});
 });

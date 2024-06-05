@@ -2,31 +2,49 @@
 	controllerName="ui5.kp.controller.MainOr"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
 	xmlns:sfb="sap.ui.comp.smartfilterbar"
 	xmlns:st="sap.ui.comp.smarttable"
-	height="88%"
+	height="99%"
 	displayBlock="true">
-	<sfb:SmartFilterBar id="idSmartFilterBar" entitySet="ZLSD_SubjOr">
-		<sfb:controlConfiguration>
-			<sfb:ControlConfiguration index="1" key="Icoorg" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"/>
-			<sfb:ControlConfiguration index="2" key="Nzvorg" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"/>
-			<sfb:ControlConfiguration key="to_Subjekt.Idnsbj" visible="false" />
-			<sfb:ControlConfiguration key="to_Subjekt.Vrzsbj" visible="false" />
-		</sfb:controlConfiguration>
-	</sfb:SmartFilterBar>  		
-	<st:SmartTable
-		id="idSmartTable"
-		entitySet="ZLSD_SubjOr"
-		smartFilterId="idSmartFilterBar"
-		beforeRebindTable="onBeforeRebindTable"
-		tableType="Table"
-		header="{i18n>subjectListTitle}"
-		showRowCount="true"
-		enableAutoColumnWidth="true"
-		initiallyVisibleFields="Icoorg,Nzvorg,Statadr,Prafrm"
-		enableExport="false"
-		persistencyKey="SmartTableAnalyticalSubjOr"
-		useVariantManagement="true"
-		useTablePersonalisation="true">
-	</st:SmartTable>
+	<semantic:FullscreenPage id="idMainOrPage">
+		<semantic:content>
+			<VBox fitContainer="true">	
+				<sfb:SmartFilterBar id="idSmartFilterBar" entitySet="ZLSD_SubjOr">
+					<sfb:controlConfiguration>
+						<sfb:ControlConfiguration index="1" key="Icoorg" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"/>
+						<sfb:ControlConfiguration index="2" key="Nzvorg" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false">
+							<sfb:defaultFilterValues>
+								<sfb:SelectOption operator="Contains" low="gastro"/>
+							</sfb:defaultFilterValues>
+						</sfb:ControlConfiguration>							
+						<sfb:ControlConfiguration key="to_Subjekt.Idnsbj" visible="false" />
+						<sfb:ControlConfiguration key="to_Subjekt.Vrzsbj" visible="false" />
+					</sfb:controlConfiguration>
+				</sfb:SmartFilterBar>  		
+				<st:SmartTable
+					id="idSmartTable"
+					entitySet="ZLSD_SubjOr"
+					smartFilterId="idSmartFilterBar"
+					beforeRebindTable="onBeforeRebindTable"
+					tableType="Table"
+					header="{i18n>subjectListTitle}"
+					showRowCount="true"
+					enableAutoColumnWidth="true"
+					initiallyVisibleFields="Icoorg,Nzvorg,Statadr,Prafrm"
+					enableExport="false"
+					persistencyKey="SmartTableAnalyticalSubjOr"
+					useVariantManagement="true"
+					useTablePersonalisation="true">
+					<Table 
+						selectionChange="onSelectionChange"
+						mode="SingleSelectMaster"
+						growing="false"
+						growingThreshold="0"
+						growingScrollToLoad="false">
+					</Table>							
+				</st:SmartTable>
+			</VBox>
+		</semantic:content>
+	</semantic:FullscreenPage>	
 </mvc:View>

@@ -12,18 +12,6 @@ sap.ui.define([
 			this.getView().setModel(oModel);
 		},
 
-		onFilterBarInitialized: function (oEvent) {
- 			 var oSmartFilterBar = this.byId("idSmartFilterBar");
-// 			 var aGrpConf = oSmartFilterBar.getGroupConfiguration();
-// 			 var oData = oSmartFilterBar.getFilters("to_Subjekt.Oidsbj");
- 			 if (oSmartFilterBar.isInitialised()) {
-			 	oSmartFilterBar.getControlByKey("Idnsbj").setEnabled(false);
- 			 }
-			// var oVariant = oSmartFilterBar.fetchVariant();
-			// var oFilters = oSmartFilterBar.getFilters();
-			// var oControlConf = oSmartFilterBar.getControlConfiguration();
-		},
-
 		initView: true,
 
 		onBeforeRebindTable: function (oEvent) {
@@ -56,29 +44,20 @@ sap.ui.define([
 				// to prevent applying the initial sort all times 
 				this.initView = false;
 			}
+		},
 
-			// var oSmartTable = oEvent.getSource();
-			// if (this._isOnInit == null) this._isOnInit = true; //To set this initial sorter only when view start
-			// if (this._isOnInit) {
-			// oSmartTable.applyVariant({
-			// 	sort: {
-			// 		sortItems: [{
-			// 				columnKey: "Prjosb",
-			// 				operation: "Ascending"
-			// 			},
-			// 			{
-			// 				columnKey: "Jmnosb",
-			// 				operation: "Ascending"
-			// 			},
-			// 			{
-			// 				columnKey: "Rdncsl",
-			// 				operation: "Ascending"
-			// 			}
-			// 		]
-			// 	}
-			// });
-			// 	this._isOnInit = false;
-			// }		
+		onSelectionChange : function (oEvent) {
+//			var obj = oEvent.getSource().getBindingContext();
+			var sPath = oEvent.getParameter("listItem").getBindingContextPath();
+			// var sPath = oEvent.getParameter("listItem").getBindingContext().getPath();
+			// var oModel = oEvent.getParameter("listItem").getBindingContext().getModel();
+//			var idnSbj = oEvent.getParameter("listItem").getBindingContext().getProperty("Idnsbj");
+//				"sPath": window.encodeURIComponent(sPath)
+			const oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("rt_detail_os", {
+				"sPath":  window.encodeURIComponent(sPath)
+			});
 		}
+
 	});
 });

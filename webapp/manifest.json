@@ -65,10 +65,7 @@
             },
             "ui": {
                 "type": "sap.ui.model.json.JSONModel"
-            },
-            "mdlSbj": {
-				"dataSource": "dsSbj"
-			}            
+            }
         },
         "rootView": {
             "viewName": "ui5.kp.view.App",
@@ -89,54 +86,77 @@
             },
             "routes": [
                 {
+                    "name":    "rt_default",
                     "pattern": "",
-                    "name": "rt_default",
-                    "target": "tg_main_sel"
+                    "target":  "tg_main_sel"
                 },
                 {
+                    "name":    "rt_main_os",
                     "pattern": "os",
-                    "name": "rt_os",
-                    "target": "tg_main_os"
-                },                                
+                    "target":  "tg_main_os"
+                },     
                 {
+                    "name":    "rt_detail_os",
+                    "pattern": "detail_os/:sPath:",
+                    "target":  "tg_detail_os"
+                },                                              
+                {
+                    "name":    "rt_main_or",
                     "pattern": "or",
-                    "name": "rt_or",
-                    "target": "tg_main_or"
-                },                
+                    "target":  "tg_main_or"
+                },  
                 {
+                    "name":    "rt_detail_or",
+                    "pattern": "detail_or/:sPath:",
+                    "target":  "tg_detail_or"
+                },                               
+                {
+                    "name":    "rt_sbjlst",
                     "pattern": "sbjlst/:Rc:/:Jmeno:/:Prijmeni:",
-                    "name": "rt_sbjlst",
-                    "target": "tg_sbjlst"
+                    "target":  "tg_sbjlst"
                 }
             ],
             "targets": {
                 "tg_main_sel": {
-                    "id": "main_sel",
-                    "name": "MainSel",
+                    "id":         "main_sel",
+                    "name":       "MainSel",
+                    "transition": "show",
                     "level": 1
                 },                
                 "tg_main_os": {
-                    "id": "main_os",
-                    "name": "MainOs",
-                    "parent": "tg_main_sel",
-                    "controlId": "mainNavContainer",
+                    "id":         "main_os",
+                    "name":       "MainOs",
+                    "parent":     "tg_main_sel",
+                    "controlId":  "mainNavContainer",
                     "transition": "show",
                     "level": 2
                 },
-                "tg_main_or": {
-                    "id": "main_or",
-                    "name": "MainOr",
-                    "parent": "tg_main_sel",
-                    "controlId": "mainNavContainer",
+                "tg_detail_os": {
+                    "id":         "detail_os",
+                    "name":       "DetailOs",
                     "transition": "show",
-                    "level": 3                    
+                    "level": 3
                 },                
+                "tg_main_or": {
+                    "id":         "main_or",
+                    "name":       "MainOr",
+                    "parent":     "tg_main_sel",
+                    "controlId":  "mainNavContainer",
+                    "transition": "show",
+                    "level": 2                    
+                }, 
+                "tg_detail_or": {
+                    "id":         "detail_or",
+                    "name":       "DetailOr",
+                    "transition": "show",
+                    "level": 3
+                },                                   
                 "tg_sbjlst": {
                     "id": "sbjlst",
                     "name": "SubjectList"
                 },
                 "tg_not_found": {
-                    "name": "MainSel",
+                    "name":       "NotFound",
                     "transition": "show",
                     "level": 0
                 }                
