@@ -2,16 +2,14 @@
 	controllerName="ui5.kp.controller.MainOs"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:smt="sap.m.semantic"
+	xmlns:semantic="sap.m.semantic"
 	xmlns:sfb="sap.ui.comp.smartfilterbar"
 	xmlns:st="sap.ui.comp.smarttable"
 	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 	displayBlock="true">
-
-	<smt:FullscreenPage id="idMainOsPage">
-		<smt:content>
+	<semantic:FullscreenPage id="idMainOrPage">
+		<semantic:content>
 			<VBox fitContainer="true">
-
 				<sfb:SmartFilterBar id="idSmartFilterBar"
 	                    			entitySet="ZLSD_SubjOs"
 									initialized="onFilterBarInitialized">
@@ -31,18 +29,17 @@
 					<sfb:ControlConfiguration key="to_Subjekt.Idnsbj" visible="false" />
 					<sfb:ControlConfiguration key="to_Subjekt.Vrzsbj" visible="false" />
 					</sfb:controlConfiguration>
-
 					<!-- layout data used to make the table growing but the filter bar fixed -->
 					<sfb:layoutData>
 						<FlexItemData shrinkFactor="0"/>
 					</sfb:layoutData>					
 				</sfb:SmartFilterBar>  
 	
-				
+			
 			
 				<st:SmartTable
 					id="idSmartTable"
-					width="100%"
+					width="120%"
 					entitySet="ZLSD_SubjOs"
 					smartFilterId="idSmartFilterBar"
 					beforeRebindTable="onBeforeRebindTable"
@@ -52,22 +49,22 @@
 					enableAutoColumnWidth="true"
 					initiallyVisibleFields="Idnsbj,Vrzsbj,Rdncsl,Prjosb,Jmnosb,Rdnprj,Dtmnrz,Dtmumr"
 					enableExport="false"
-					persistencyKey="SmartTableSubjOs"
+					persistencyKey="SmartTableAnalyticalSubjOs"
 					useVariantManagement="true"
-					useTablePersonalisation="true">
-
-					
-					<!-- layout data used to make the table growing but the filter bar fixed -->
+					useTablePersonalisation="true"
+					class="sapUiResponsiveContentPadding"
+					app:useSmartToggle="true"
+					>
+					<Table selectionChange="onSelectionChange" mode="SingleSelectMaster">
+					</Table>
 					<st:layoutData>
 						<FlexItemData growFactor="1" baseSize="0%"/>
 					</st:layoutData>
-
 				</st:SmartTable>
 
 				
 				
 			</VBox>
-		</smt:content>
-	</smt:FullscreenPage>
-
+		</semantic:content>
+	</semantic:FullscreenPage>
 </mvc:View>

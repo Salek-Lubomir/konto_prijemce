@@ -12,10 +12,10 @@
 			<sfm:SmartForm id="smartFormBase">
                 <sfm:Group id="groupBase" title="">
                     <sfm:GroupElement id="groupElementBase1">
-                        <sfd:SmartField id="idIdnSbj" textLabel="Id subjektu" value="{Idnsbj}"></sfd:SmartField>
+                        <sfd:SmartField id="idIdnSbj" value="{Idnsbj}"></sfd:SmartField>
                     </sfm:GroupElement>
                     <sfm:GroupElement id="groupElementBase2">
-                        <sfd:SmartField id="idVrzSbj" textLabel="Verze subjektu" value="{Vrzsbj}"></sfd:SmartField>
+                        <sfd:SmartField id="idVrzSbj" value="{Vrzsbj}"></sfd:SmartField>
                     </sfm:GroupElement>
 			    </sfm:Group>
             </sfm:SmartForm>

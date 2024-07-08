@@ -2,13 +2,13 @@
 	controllerName="ui5.kp.controller.MainOr"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.m.semantic"
+	xmlns:smt="sap.m.semantic"
 	xmlns:sfb="sap.ui.comp.smartfilterbar"
 	xmlns:st="sap.ui.comp.smarttable"
-	height="99%"
 	displayBlock="true">
-	<semantic:FullscreenPage id="idMainOrPage">
-		<semantic:content>
+
+	<smt:FullscreenPage id="idMainOrPage">
+		<smt:content>
 			<VBox fitContainer="true">	
 				<sfb:SmartFilterBar id="idSmartFilterBar" entitySet="ZLSD_SubjOr">
 					<sfb:controlConfiguration>
@@ -31,20 +31,17 @@
 					header="{i18n>subjectListTitle}"
 					showRowCount="true"
 					enableAutoColumnWidth="true"
-					initiallyVisibleFields="Icoorg,Nzvorg,Statadr,Prafrm"
+					initiallyVisibleFields="Idnsbj,Vrzsbj,Icoorg,Nzvorg,Statadr,Prafrm"
 					enableExport="false"
-					persistencyKey="SmartTableAnalyticalSubjOr"
+					persistencyKey="SmartTableSubjOr"
 					useVariantManagement="true"
 					useTablePersonalisation="true">
-					<Table 
-						selectionChange="onSelectionChange"
-						mode="SingleSelectMaster"
-						growing="false"
-						growingThreshold="0"
-						growingScrollToLoad="false">
-					</Table>							
+					
+					<Table selectionChange="onSelectionChange"	mode="SingleSelectMaster"/>
+						
 				</st:SmartTable>
 			</VBox>
-		</semantic:content>
-	</semantic:FullscreenPage>	
+		</smt:content>
+	</smt:FullscreenPage>	
+
 </mvc:View>

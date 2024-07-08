@@ -52,7 +52,7 @@
 					enableAutoColumnWidth="true"
 					initiallyVisibleFields="Idnsbj,Vrzsbj,Rdncsl,Prjosb,Jmnosb,Rdnprj,Dtmnrz,Dtmumr"
 					enableExport="false"
-					persistencyKey="SmartTableSubjOs"
+					persistencyKey="SmartTableAnalyticalSubjOs"
 					useVariantManagement="true"
 					useTablePersonalisation="true">
 
